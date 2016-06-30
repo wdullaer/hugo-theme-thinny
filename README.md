@@ -1,13 +1,13 @@
-# wdullaer theme for hugo
+# Thinny for Hugo
 
 
-Thinny is a single-column theme for [Hugo](http://gohugo.io/).
+Thinny is a single-column theme for [Hugo](http://gohugo.io/).  
 Based on the [Thinny theme for Jekyll ](https://github.com/camporez/Thinny)
 
-blog demo : http://wdullaer.com
-blog source : https://github.com/wdullaer/wdullaer.github.io
+Blog demo : http://wdullaer.com  
+Blog source : https://github.com/wdullaer/wdullaer.github.io
 
-![Hugo wdullaer Theme screenshot](https://raw.githubusercontent.com/wdullaer/hugo-theme-wdullaer/master/images/screen.png)
+![Hugo Thinny Theme screenshot](https://raw.githubusercontent.com/wdullaer/hugo-theme-thinny/master/images/screen.png)
 
 ## Features
 
@@ -42,7 +42,7 @@ blog source : https://github.com/wdullaer/wdullaer.github.io
 
 ``` toml
 BaseUrl= "http://example.com/"
-LanguageCode= "fr-FR"
+LanguageCode= "en-UK"
 Title= "My blog is awesome"
 paginate = 5
 DisqusShortname = "YOUR_SHORT_NAME_HERE"
