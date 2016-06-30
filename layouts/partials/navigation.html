@@ -1,0 +1,28 @@
+<div class="nav">
+  <h3 class="nav-title">Menu</h3>
+  <a href="#" class="nav-close">
+    <span class="hidden">Close</span>
+  </a>
+  <ul>
+    {{ $currentNode := . }}
+
+    {{ range .Site.Menus.main }}
+      {{.Pre}}
+      <li class="nav-opened{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .)}} nav-current{{end}}" role="presentation">
+      	<a href="{{.URL}}">{{.Name}}</a>
+      </li>
+    {{end}}
+  </ul>
+
+  <div class="social-buttons">
+    <hr />
+    {{ if .Site.Params.social }}
+      {{ range .Site.Params.social }}
+      <a href="{{ .URL }}" target="_blank" title="{{ .Description }}">
+        <span class="icon-{{ .Icon }}" style="color:rgb(238, 238, 238);font-size:2em"></span>
+      </a>
+      {{end}}
+    {{end}}
+  </div>
+</div>
+<span class="nav-cover"></span>

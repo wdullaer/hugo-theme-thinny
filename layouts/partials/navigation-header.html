@@ -1,0 +1,12 @@
+<nav class="main-nav overlay clearfix">
+    {{ if .Site.Menus.main }}
+        <a class="menu-button" href="#"><span class="icon-menu">&#9776;</span></a>
+    {{end}}
+    {{ if .Site.Params.social }}
+      {{ range .Site.Params.social }}
+        <a  class="blog-logo" href="{{ .URL }}" target="_blank" title="{{ .Description }}">
+          <span class="icon-{{ .Icon }}" style="color:rgb(238, 238, 238);font-size:1.5em"></span>
+        </a>
+      {{end}}
+    {{end}}
+</nav>

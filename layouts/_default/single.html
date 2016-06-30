@@ -1,0 +1,79 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+
+{{if .Params.image}}
+<header class="main-header post-head" style="background-image: url({{ $baseurl }}{{.Params.image}})">
+{{else}}
+<header class="main-header post-head" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
+{{end}}
+  {{ partial "navigation-header.html" . }}
+
+  <div class="post-info">
+    <h1>{{.Title}}</h1>
+    {{ if .Params.quote }}
+    <h2>{{ .Params.quote }}</h2>
+    {{end}}
+
+    <section class="post-meta">
+    {{ if eq .Section "post"}}
+      {{$author := index .Site.Data.authors .Params.author }}
+      {{ if isset $author "thumbnail" }}
+          <img class="author-thumb" src="{{ .Site.BaseURL }}{{ $author.thumbnail }}" alt="Author image" nopin="nopin" />
+      {{else if .Site.Params.logo }}
+          <img class="author-thumb" src="{{ .Site.BaseURL }}{{.Site.Params.logo}}" alt="Author image" nopin="nopin" />
+      {{end}}
+      {{if and (ne .Params.author .Site.Params.author) .Params.author}}
+      {{$author := index .Site.Data.authors .Params.author }}
+          {{$author.name}}
+      {{else if .Site.Params.author}}
+          {{.Site.Params.author}}
+      {{end}}
+      <span class="post-tags">
+      {{if .Params.tags }}on
+          {{ delimit (apply (apply (sort .Params.tags) "partial" "tag.html" ".") "chomp" ".") ", " }}
+      {{end}}
+      </span>
+      <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+          {{ .Date.Format "2 Jan 2006" }}
+      </time>
+    {{end}}
+    </section>
+  </div>
+  <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+</header>
+
+
+
+<main class="content" role="main" id="content">
+
+
+
+
+  <article class="post {{ .Section }}">
+
+    <header class="post-header">
+    </header>
+
+    <section class="post-content">
+      {{ .Content }}
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    {{if .Site.Params.logo}}
+    <figure class="author-image">
+        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{ $baseurl }}{{.Site.Params.logo}})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
+    </figure>
+    {{end}}
+
+    {{ partial "author.html" . }}
+
+    {{ partial "disqus.html" . }}
+
+  </footer>
+</article>
+
+</main>
+{{ partial "footer.html" . }}

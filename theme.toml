@@ -1,0 +1,17 @@
+name = "wdullaer"
+license = "MIT"
+licenselink = "https://github.com/wdullaer/hugo-theme-thinny/blob/master/LICENSE.md"
+description = "Hugo port of Thinny, adapted for wdullaer.com"
+homepage = "http://wdullaer.com/"
+tags = ["blog"]
+features = ["disqus", "google analytics", "share"]
+min_version=0.14
+
+[author]
+  name = "Wouter Dullaert"
+  homepage = "http://wdullaer.com"
+
+[original]
+  name = "Thinny"
+  homepage = "https://github.com/camporez/Thinny"
+  repo = "https://github.com/camporez/Thinny"
