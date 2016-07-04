@@ -1,9 +1,8 @@
 {{ partial "header.html" . }}
-{{ $baseurl := .Site.BaseURL }}
 
 
 {{if .Params.image}}
-<header class="main-header post-head" style="background-image: url({{ $baseurl }}{{.Params.image}})">
+<header class="main-header post-head" style="background-image: url({{ .Params.image | relURL }})">
 {{else}}
 <header class="main-header post-head no-cover">
 {{end}}
@@ -41,7 +40,7 @@
           </time>
         {{end}}
          {{ range .Params.tags }}
-          <span class="post-tag small"><a href="{{ $baseurl }}tags/{{ . | urlize }}/">#{{ . }}</a></span>
+          <span class="post-tag small"><a href="{{ .Site.BaseURL }}tags/{{ . | urlize }}/">#{{ . }}</a></span>
          {{ end }}
         </section>
     </header>
@@ -94,7 +93,7 @@
 
     {{if .Site.Params.logo}}
     <figure class="author-image">
-        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{ $baseurl }}{{.Site.Params.logo}})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
+        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{ .Site.Params.logo | relURL }})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
     </figure>
     {{end}}
 

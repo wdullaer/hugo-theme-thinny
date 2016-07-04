@@ -1,11 +1,7 @@
 {{ partial "header.html" . }}
-{{ $baseurl := .Site.BaseURL }}
+{{ $imageurl := or .Params.image .Site.Params.cover}}
 
-{{if .Params.image}}
-<header class="main-header post-head" style="background-image: url({{ $baseurl }}{{.Params.image}})">
-{{else}}
-<header class="main-header post-head" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
-{{end}}
+<header class="main-header post-head" style="background-image: url({{ $imageurl | relURL }})">
   {{ partial "navigation-header.html" . }}
 
   <div class="post-info">
@@ -18,9 +14,9 @@
     {{ if eq .Section "post"}}
       {{$author := index .Site.Data.authors .Params.author }}
       {{ if isset $author "thumbnail" }}
-          <img class="author-thumb" src="{{ .Site.BaseURL }}{{ $author.thumbnail }}" alt="Author image" nopin="nopin" />
+          <img class="author-thumb" src="{{ $author.thumbnail | relURL }}" alt="Author image" nopin="nopin" />
       {{else if .Site.Params.logo }}
-          <img class="author-thumb" src="{{ .Site.BaseURL }}{{.Site.Params.logo}}" alt="Author image" nopin="nopin" />
+          <img class="author-thumb" src="{{ .Site.Params.logo | relURL }}" alt="Author image" nopin="nopin" />
       {{end}}
       {{if and (ne .Params.author .Site.Params.author) .Params.author}}
       {{$author := index .Site.Data.authors .Params.author }}
@@ -64,7 +60,7 @@
 
     {{if .Site.Params.logo}}
     <figure class="author-image">
-        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{ $baseurl }}{{.Site.Params.logo}})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
+        <a class="img" href="{{.Site.BaseURL}}" style="background-image: url({{ .Site.Params.logo | relURL}})"><span class="hidden">{{.Site.Params.author}}'s Picture</span></a>
     </figure>
     {{end}}
 

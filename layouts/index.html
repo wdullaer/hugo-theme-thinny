@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 
 {{if .Site.Params.cover}}
-<header class="main-header tag-head" style="background-image: url({{.Site.BaseURL}}{{.Site.Params.cover}})">
+<header class="main-header tag-head" style="background-image: url({{ .Site.Params.cover | relURL }})">
 {{else}}
 <header class="main-header no-cover">
 {{end}}
@@ -10,7 +10,7 @@
 
     <div class="vertical">
         <div class="main-header-content inner">
-            <div class="main-logo" style="background-image: url({{ .Site.Params.logo }});"></div>
+            <div class="main-logo" style="background-image: url({{ .Site.Params.logo | relURL }});"></div>
         </div>
     </div>
 </header>

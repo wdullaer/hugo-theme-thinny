@@ -1,10 +1,8 @@
 {{ partial "header.html" . }}
-{{ $baseurl := .Site.BaseURL }}
+{{ $imageurl := or .Params.image .Site.Params.cover }}
 
-{{if .Params.cover}}
-	<header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Params.cover}})">
-{{else if .Site.Params.cover}}
-	<header class="main-header tag-head" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
+{{if $imageurl}}
+	<header class="main-header tag-head" style="background-image: url({{ $imageurl | relURL }})">
 {{else}}
 	<header class="main-header tag-head no-cover">
 {{end}}
