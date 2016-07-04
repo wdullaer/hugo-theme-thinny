@@ -1,4 +1,5 @@
-    <footer class="site-footer clearfix" style="background-image: url({{ .Site.BaseURL }}{{.Params.image}})">
+{{$imageurl := or .Params.image .Site.Params.cover }}
+    <footer class="site-footer clearfix" style="background-image: url({{urlize {{ .Site.BaseURL }}/{{$imageurl}}}})">
       <div>
         <section class="copyright"><a href="{{.Site.BaseURL}}">©{{.Now.Year}} {{.Site.Title}}</a>, {{.Site.Copyright | safeHTML}}</section>
         {{if ne .Site.Params.hideHUGOSupport true}}
@@ -7,10 +8,10 @@
       </div>
     </footer>
     </div>
-    <script type="text/javascript" src="{{.Site.BaseURL}}js/jquery.js"></script>
-    <script type="text/javascript" src="{{.Site.BaseURL}}js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="{{.Site.BaseURL}}js/index.js"></script>
-    <script type="text/javascript" src="{{.Site.BaseURL}}js/prism.js"></script>
+    <script type="text/javascript" src="{{urlize {{.Site.BaseURL}}/js/jquery.js}}"></script>
+    <script type="text/javascript" src="{{urlize {{.Site.BaseURL}}/js/jquery.fitvids.js}}"></script>
+    <script type="text/javascript" src="{{urlize {{.Site.BaseURL}}/js/index.js}}"></script>
+    <script type="text/javascript" src="{{urlize {{.Site.BaseURL}}/js/prism.js}}"></script>
     {{ if .Site.Params.customFooterPartial }}
         {{ partial .Site.Params.customFooterPartial . }}
     {{ end }}

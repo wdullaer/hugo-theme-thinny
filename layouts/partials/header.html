@@ -30,21 +30,21 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{{.Site.BaseURL}}img/favicon.ico">
-	  <link rel="apple-touch-icon" href="{{.Site.BaseURL}}images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="{{urlize {{.Site.BaseURL}}/img/favicon.ico}}">
+	  <link rel="apple-touch-icon" href="{{.Site.BaseURL}}/images/apple-touch-icon.png" />
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fenix:400,400italic">
-    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlize {{.Site.BaseURL}}/css/screen.css}}" />
+    <link rel="stylesheet" type="text/css" href="{{urlize {{.Site.BaseURL}}/css/nav.css}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
-    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}css/prism.css" />
+    <link rel="stylesheet" type="text/css" href="{{urlize {{.Site.BaseURL}}/css/prism.css}}" />
 
 
     {{ if .Site.Params.RSSLink}}
         <link href="{{.Site.Params.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{else}}
       {{ if ne .URL "/" }}
-          <link href="{{ .Site.BaseURL }}index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+          <link href="{{urlize {{ .Site.BaseURL }}/index.xml}}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
       {{ end }}
       {{if .IsNode}}
         <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
