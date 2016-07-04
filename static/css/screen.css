@@ -704,6 +704,10 @@ body.nav-opened .nav {
             transform: rotate(-45deg);
 }
 
+.nav-close:hover {
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+
 .nav-close:hover:before,
 .nav-close:hover:after {
     background: rgb(255,255,255);
@@ -773,7 +777,7 @@ body.nav-opened .nav {
   text-align: center;
   display: block;
   position: absolute;
-  bottom: 60px;
+  bottom: 11%;
   left: 30px;
   right: 30px;
   height: 38px;

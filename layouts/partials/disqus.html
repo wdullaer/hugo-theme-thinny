@@ -1,5 +1,4 @@
-{{ if ne .Params.comments false}}
-{{ if .Site.DisqusShortname }}
+{{ if and .Params.comments .Site.DisqusShortname}}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = '{{ .Site.DisqusShortname }}';
@@ -11,5 +10,4 @@
   })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{{ end }}
 {{ end }}
