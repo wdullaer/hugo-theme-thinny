@@ -1,4 +1,4 @@
-{{ if and .Params.comments .Site.DisqusShortname}}
+{{ if and .Params.comments .Site.DisqusShortname (not (in (print .Site.BaseURL) "localhost")) }}
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = '{{ .Site.DisqusShortname }}';
