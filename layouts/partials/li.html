@@ -4,7 +4,7 @@
         <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>{{ or .Params.excerpt .Summary }} <a class="read-more" href="{{.RelPermalink}}">&raquo;</a></p>
+        <p>{{ markdownify (or .Params.excerpt .Summary) }} <a class="read-more" href="{{.RelPermalink}}">&raquo;</a></p>
     </section>
     <footer class="post-meta">
         {{$author := index .Site.Data.authors .Params.author }}
